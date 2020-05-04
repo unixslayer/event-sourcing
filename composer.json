@@ -1,0 +1,44 @@
+{
+  "name": "unixslayer/event-source",
+  "description": "Event Sourcing implementation",
+  "type": "project",
+  "license": "proprietary",
+  "require": {
+    "php": "^7.2.5",
+    "ramsey/uuid": "^4.0"
+  },
+  "require-dev": {
+    "friendsofphp/php-cs-fixer": "^2.16",
+    "phpstan/extension-installer": "^1.0",
+    "phpstan/phpstan": "^0.12.19",
+    "phpstan/phpstan-phpunit": "^0.12.8",
+    "roave/security-advisories": "dev-master",
+    "phpunit/phpunit": "*"
+  },
+  "config": {
+    "platform": {
+      "php": "7.4"
+    },
+    "preferred-install": {
+      "*": "dist"
+    },
+    "sort-packages": true,
+    "bin-dir": "bin"
+  },
+  "autoload": {
+    "psr-4": {
+      "Unixslayer\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Unixslayer\\": "tests/"
+    }
+  },
+  "scripts": {
+    "check-cs": "php-cs-fixer fix --dry-run --diff | tee ci/_output/phpcs_report.txt",
+    "fix-cs": "php-cs-fixer fix",
+    "phpstan": "phpstan analyse --no-progress -c phpstan.neon.dist | tee ci/_output/phpstan_report.txt",
+    "test": "phpunit --configuration phpunit.xml.dist --coverage-text --log-junit tests/_output/phpunit-junit.xml --colors=never | tee ci/_output/test_report.txt"
+  }
+}
