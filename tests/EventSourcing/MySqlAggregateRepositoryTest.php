@@ -11,6 +11,7 @@ use Unixslayer\EventSourcing\Mock\Repository;
 use Unixslayer\ProophEventStoreBridge\MessageTransformer;
 use Unixslayer\TestUtils;
 
+/** @group database */
 final class MySqlAggregateRepositoryTest extends TestCase
 {
     public function testRepositoryCanSaveAggregateRoot(): void

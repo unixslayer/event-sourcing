@@ -12,6 +12,7 @@
     "require-dev": {
         "ext-pdo": "*",
         "friendsofphp/php-cs-fixer": "^2.16",
+        "php-coveralls/php-coveralls": "^2.2",
         "phpunit/phpunit": "^9.1",
         "roave/security-advisories": "dev-master",
         "vimeo/psalm": "^3.11"
@@ -45,6 +46,7 @@
         "check-cs": "php-cs-fixer fix --dry-run",
         "fix-cs": "php-cs-fixer fix",
         "psalm":  "psalm",
-        "test": "phpunit --configuration phpunit.xml.dist --coverage-text"
+        "test": "phpunit --configuration phpunit.xml.dist --coverage-text --coverage-clover ./tests/_output/clover.xml --exclude database --testdox",
+        "coveralls": "php-coveralls -v"
     }
 }

@@ -28,6 +28,7 @@ final class CartRepositoryTest extends TestCase
         static::assertEquals($cart, $savedAggregateRoot);
     }
 
+    /** @group database */
     public function testPostgresRepository(): void
     {
         $cartId = Uuid::uuid4();
@@ -42,6 +43,7 @@ final class CartRepositoryTest extends TestCase
         static::assertEquals($cart, $savedAggregateRoot);
     }
 
+    /** @group database */
     public function testMySqlRepository(): void
     {
         $cartId = Uuid::uuid4();
