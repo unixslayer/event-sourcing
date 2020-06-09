@@ -35,7 +35,7 @@ final class Cart extends AggregateRoot
         $cartCurrency = $this->balance->getCurrency();
         $productCurrency = $product->price()->getCurrency();
         if (!$productCurrency->equals($cartCurrency)) {
-            throw new \InvalidArgumentException(sprintf('Cart can contain only products with %s currency. %s given.', $cartCurrency, $productCurrency));
+            throw new \InvalidArgumentException(sprintf('Cart can contain only products with %s currency. %s given.', (string)$cartCurrency, (string)$productCurrency));
         }
 
         $this->recordThat(ProductWasAddedToCart::occur($this->id, $product));

@@ -72,6 +72,7 @@ class Event
         return $this->metadata['_aggregateVersion'];
     }
 
+    /** @psalm-suppress MissingParamType */
     public function withAddedMetadata(string $key, $value): Event
     {
         $message = clone $this;
