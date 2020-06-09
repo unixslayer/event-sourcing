@@ -4,20 +4,18 @@ declare(strict_types=1);
 
 namespace Unixslayer\EventSourcing\Mock;
 
-use Ramsey\Uuid\Uuid;
-use Unixslayer\EventSourcing\AggregateEvent;
+use Ramsey\Uuid\UuidInterface;
 use Unixslayer\EventSourcing\AggregateRoot;
+use Unixslayer\EventSourcing\Event;
 
 final class Aggregate extends AggregateRoot
 {
     private int $counter = 0;
 
-    public static function new(): self
+    public static function new(UuidInterface $uuid): self
     {
-        $id = Uuid::uuid1();
-
         $self = new self();
-        $self->recordThat(AggregateWasCreated::occur($id));
+        $self->recordThat(WasCreated::occur($uuid));
 
         return $self;
     }
@@ -37,9 +35,9 @@ final class Aggregate extends AggregateRoot
         $this->recordThat(CounterWasDecreased::occur($this->aggregateId()));
     }
 
-    protected function apply(AggregateEvent $event): void
+    protected function apply(Event $event): void
     {
-        if ($event instanceof AggregateWasCreated) {
+        if ($event instanceof WasCreated) {
             $this->id = $event->aggregateId();
         }
         if ($event instanceof CounterWasIncreased) {

@@ -6,7 +6,7 @@ namespace Unixslayer\EventSourcing;
 
 use PHPUnit\Framework\TestCase;
 use Ramsey\Uuid\Uuid;
-use Unixslayer\EventSourcing\Mock\Event;
+use Unixslayer\EventSourcing\Mock\DummyEvent;
 
 final class AggregateEventTest extends TestCase
 {
@@ -17,7 +17,7 @@ final class AggregateEventTest extends TestCase
             'key' => 'value',
         ];
 
-        $event = Event::occur($aggregateId, $payload);
+        $event = DummyEvent::occur($aggregateId, $payload);
         static::assertEquals($aggregateId, $event->aggregateId());
         static::assertEquals($payload, $event->payload());
     }
@@ -25,8 +25,8 @@ final class AggregateEventTest extends TestCase
     public function testEventCanTrackVersion(): void
     {
         $aggregateId = Uuid::uuid1();
-        $event = Event::occur($aggregateId, []);
-        $anotherEvent = $event->withVersion(2);
+        $event = DummyEvent::occur($aggregateId, []);
+        $anotherEvent = $event->withAddedMetadata('_aggregateVersion', 2);
 
         static::assertEquals(1, $event->version());
         static::assertEquals(2, $anotherEvent->version());

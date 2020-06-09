@@ -12,7 +12,7 @@ abstract class AggregateRoot
     private int $version = 0;
     private array $recordedEvents = [];
 
-    final public function __construct()
+    protected function __construct()
     {
     }
 
@@ -45,12 +45,12 @@ abstract class AggregateRoot
         return $this->id;
     }
 
-    protected function recordThat(AggregateEvent $event): void
+    protected function recordThat(Event $event): void
     {
         ++$this->version;
-        $this->recordedEvents[] = $event->withVersion($this->version);
+        $this->recordedEvents[] = $event->withAddedMetadata('_aggregateVersion', $this->version);
         $this->apply($event);
     }
 
-    abstract protected function apply(AggregateEvent $event): void;
+    abstract protected function apply(Event $event): void;
 }

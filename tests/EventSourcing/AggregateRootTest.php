@@ -5,13 +5,14 @@ declare(strict_types=1);
 namespace Unixslayer\EventSourcing;
 
 use PHPUnit\Framework\TestCase;
+use Ramsey\Uuid\Uuid;
 use Unixslayer\EventSourcing\Mock\Aggregate;
 
 final class AggregateRootTest extends TestCase
 {
     public function testAggregateRootAppliesEventsProperly(): void
     {
-        $aggregate = Aggregate::new();
+        $aggregate = Aggregate::new(Uuid::uuid4());
         $aggregate->increaseCounter();
         $aggregate->increaseCounter();
         $aggregate->decreaseCounter();
