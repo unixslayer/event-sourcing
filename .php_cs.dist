@@ -22,5 +22,9 @@ return PhpCsFixer\Config::create()
         'php_unit_internal_class' => false,
         'strict_param' => true,
         'yoda_style' => false,
+        'header_comment' => [
+            'commentType' => 'PHPDoc',
+            'header' => file_get_contents('.docheader'),
+        ],
     ])
 ;

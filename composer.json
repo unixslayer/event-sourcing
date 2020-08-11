@@ -1,8 +1,21 @@
 {
     "name": "unixslayer/event-sourcing",
-    "description": "Event Sourcing implementation based on prooph/event-store",
-    "type": "project",
-    "license": "proprietary",
+    "description": "Event Sourcing implementation using prooph/event-store",
+    "type": "library",
+    "license": "BSD-3-Clause",
+    "authors": [
+        {
+            "name": "Piotr Zając",
+            "email": "piotr.zajac@unixslayer.pl"
+        }
+    ],
+    "keywords": [
+        "Event Sourcing",
+        "DDD",
+        "prooph",
+        "Event Store"
+    ],
+    "minimum-stability": "dev",
     "require": {
         "php": "^7.2.5",
         "prooph/event-store": "^7.5",
@@ -28,8 +41,7 @@
         "preferred-install": {
             "*": "dist"
         },
-        "sort-packages": true,
-        "bin-dir": "bin"
+        "sort-packages": true
     },
     "autoload": {
         "psr-4": {
@@ -43,9 +55,9 @@
     },
     "scripts": {
         "ci" : [
+            "@test",
             "@check-cs",
-            "@psalm",
-            "@test"
+            "@psalm"
         ],
         "check-cs": "php-cs-fixer fix --dry-run",
         "fix-cs": "php-cs-fixer fix",

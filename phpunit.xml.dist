@@ -23,7 +23,7 @@
     </php>
 
     <testsuites>
-        <testsuite name="Project Test Suite">
+        <testsuite name="Library Test Suite">
             <directory>tests</directory>
         </testsuite>
     </testsuites>
