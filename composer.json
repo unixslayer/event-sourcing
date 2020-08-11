@@ -5,13 +5,13 @@
     "license": "proprietary",
     "require": {
         "php": "^7.2.5",
-        "moneyphp/money": "^3.3",
         "prooph/event-store": "^7.5",
         "ramsey/uuid": "^4.0"
     },
     "require-dev": {
         "ext-pdo": "*",
         "friendsofphp/php-cs-fixer": "^2.16",
+        "moneyphp/money": "^3.3",
         "php-coveralls/php-coveralls": "^2.2",
         "phpunit/phpunit": "^9.1",
         "prooph/pdo-event-store": "^1.12",
