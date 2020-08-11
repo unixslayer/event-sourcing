@@ -8,6 +8,8 @@ use Money\Currency;
 use Money\Money;
 use PHPUnit\Framework\TestCase;
 use Ramsey\Uuid\Uuid;
+use Unixslayer\Domain\Fixtures\Cart;
+use Unixslayer\Domain\Fixtures\Product;
 
 final class CartTest extends TestCase
 {

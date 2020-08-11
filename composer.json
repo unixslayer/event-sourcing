@@ -1,12 +1,12 @@
 {
-    "name": "unixslayer/event-source",
-    "description": "Event Sourcing implementation",
+    "name": "unixslayer/event-sourcing",
+    "description": "Event Sourcing implementation based on prooph/event-store",
     "type": "project",
     "license": "proprietary",
     "require": {
         "php": "^7.2.5",
         "moneyphp/money": "^3.3",
-        "prooph/pdo-event-store": "^1.12",
+        "prooph/event-store": "^7.5",
         "ramsey/uuid": "^4.0"
     },
     "require-dev": {
@@ -14,8 +14,12 @@
         "friendsofphp/php-cs-fixer": "^2.16",
         "php-coveralls/php-coveralls": "^2.2",
         "phpunit/phpunit": "^9.1",
+        "prooph/pdo-event-store": "^1.12",
         "roave/security-advisories": "dev-master",
         "vimeo/psalm": "^3.11"
+    },
+    "suggest" : {
+        "prooph/pdo-event-store": "For usage with MySQL or Postgres as event store"
     },
     "config": {
         "platform": {
@@ -29,7 +33,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Unixslayer\\": "src/"
+            "Unixslayer\\EventSourcing\\": "src/"
         }
     },
     "autoload-dev": {
@@ -46,7 +50,7 @@
         "check-cs": "php-cs-fixer fix --dry-run",
         "fix-cs": "php-cs-fixer fix",
         "psalm":  "psalm",
-        "test": "phpunit --configuration phpunit.xml.dist --coverage-text --coverage-clover ./tests/_output/clover.xml --exclude database --testdox",
+        "test": "phpunit --exclude database --testdox",
         "coveralls": "php-coveralls -v"
     }
 }

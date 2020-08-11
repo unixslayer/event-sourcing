@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Unixslayer\EventSourcing\Mock;
 
+use Unixslayer\EventSourcing\AggregateEvent;
 use Unixslayer\EventSourcing\AggregateRoot;
-use Unixslayer\EventSourcing\Event;
 
 final class DummyAggregate extends AggregateRoot
 {
@@ -14,7 +14,7 @@ final class DummyAggregate extends AggregateRoot
         return new self();
     }
 
-    protected function apply(Event $event): void
+    protected function apply(AggregateEvent $event): void
     {
     }
 }

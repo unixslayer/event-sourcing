@@ -10,7 +10,6 @@ use Ramsey\Uuid\Uuid;
 use Unixslayer\EventSourcing\Mock\Aggregate;
 use Unixslayer\EventSourcing\Mock\DummyAggregate;
 use Unixslayer\EventSourcing\Mock\Repository;
-use Unixslayer\ProophEventStoreBridge\MessageTransformer;
 
 final class AggregateRepositoryTest extends TestCase
 {
@@ -47,5 +46,13 @@ final class AggregateRepositoryTest extends TestCase
         $aggregate = DummyAggregate::new();
 
         $this->repository->saveAggregateRoot($aggregate);
+    }
+
+    public function testItReturnsNullWhenStreamNotFound(): void
+    {
+        $repository = new Repository(new InMemoryEventStore(), new MessageTransformer());
+        $aggregate = $repository->getAggregateRoot(Uuid::uuid1());
+
+        static::assertNull($aggregate);
     }
 }

@@ -2,14 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Unixslayer\ProophEventStoreBridge;
+namespace Unixslayer\EventSourcing;
 
 use Prooph\Common\Messaging\Message;
-use Unixslayer\EventSourcing\Event;
 
 final class MessageTransformer
 {
-    public function toEventData(Event $event): Message
+    public function toEventData(AggregateEvent $event): Message
     {
         $event = $event->withAddedMetadata('_messageName', \get_class($event));
 
@@ -24,7 +23,7 @@ final class MessageTransformer
         return EventData::fromArray($messageData);
     }
 
-    public function fromEventData(EventData $eventData): Event
+    public function fromEventData(EventData $eventData): AggregateEvent
     {
         $messageName = $eventData->metadata()['_messageName'];
 
@@ -32,11 +31,11 @@ final class MessageTransformer
             throw new \UnexpectedValueException(sprintf('`%s` is not a valid class.', $messageName));
         }
 
-        if (!\is_subclass_of($messageName, Event::class)) {
+        if (!\is_subclass_of($messageName, AggregateEvent::class)) {
             throw new \UnexpectedValueException(\sprintf(
-                'Message class %s is not a sub class of %s',
+                'Message class `%s` is not a sub class of `%s`',
                 $messageName,
-                Event::class
+                AggregateEvent::class
             ));
         }
 

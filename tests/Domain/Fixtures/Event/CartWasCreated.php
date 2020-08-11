@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Unixslayer\Domain\Event;
+namespace Unixslayer\Domain\Fixtures\Event;
 
 use Money\Currency;
 use Ramsey\Uuid\UuidInterface;
-use Unixslayer\EventSourcing\Event;
+use Unixslayer\EventSourcing\AggregateEvent;
 
-final class CartWasCreated extends Event
+final class CartWasCreated extends AggregateEvent
 {
     public static function occur(UuidInterface $cartId, Currency $currency): CartWasCreated
     {

@@ -11,8 +11,6 @@ use Prooph\EventStore\Metadata\Operator;
 use Prooph\EventStore\Stream;
 use Prooph\EventStore\StreamName;
 use Ramsey\Uuid\UuidInterface;
-use Unixslayer\ProophEventStoreBridge\EventData;
-use Unixslayer\ProophEventStoreBridge\MessageTransformer;
 
 abstract class AggregateRepository
 {
@@ -36,7 +34,7 @@ abstract class AggregateRepository
             return;
         }
 
-        $events = array_reduce($events, function (array $carrier, Event $aggregateEvent) {
+        $events = array_reduce($events, function (array $carrier, AggregateEvent $aggregateEvent) {
             $eventData = $this->messageTransformer->toEventData($aggregateEvent);
             $eventData = $eventData->withAddedMetadata('_aggregateType', $this->aggregateType());
             $carrier[] = $eventData;

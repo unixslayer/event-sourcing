@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace Unixslayer\EventSourcing\Mock;
 
 use Ramsey\Uuid\UuidInterface;
+use Unixslayer\EventSourcing\AggregateEvent;
 use Unixslayer\EventSourcing\AggregateRoot;
-use Unixslayer\EventSourcing\Event;
 
 final class Aggregate extends AggregateRoot
 {
@@ -35,7 +35,7 @@ final class Aggregate extends AggregateRoot
         $this->recordThat(CounterWasDecreased::occur($this->aggregateId()));
     }
 
-    protected function apply(Event $event): void
+    protected function apply(AggregateEvent $event): void
     {
         if ($event instanceof WasCreated) {
             $this->id = $event->aggregateId();

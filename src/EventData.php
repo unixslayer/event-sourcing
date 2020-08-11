@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Unixslayer\ProophEventStoreBridge;
+namespace Unixslayer\EventSourcing;
 
 use Prooph\Common\Messaging\DomainEvent;
 

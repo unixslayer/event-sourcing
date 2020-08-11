@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Unixslayer\Domain;
+namespace Unixslayer\Domain\Fixtures;
 
 use Prooph\EventStore\StreamName;
 use Unixslayer\EventSourcing\AggregateRepository;

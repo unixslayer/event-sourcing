@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Unixslayer\Domain;
+namespace Unixslayer\Domain\Fixtures;
 
 use Money\Currency;
 use Money\Money;
 use Ramsey\Uuid\UuidInterface;
-use Unixslayer\Domain\Event\CartWasCreated;
-use Unixslayer\Domain\Event\ProductWasAddedToCart;
+use Unixslayer\Domain\Fixtures\Event\CartWasCreated;
+use Unixslayer\Domain\Fixtures\Event\ProductWasAddedToCart;
+use Unixslayer\EventSourcing\AggregateEvent;
 use Unixslayer\EventSourcing\AggregateRoot;
-use Unixslayer\EventSourcing\Event;
 
 final class Cart extends AggregateRoot
 {
@@ -46,7 +46,7 @@ final class Cart extends AggregateRoot
         return $this->balance;
     }
 
-    protected function apply(Event $event): void
+    protected function apply(AggregateEvent $event): void
     {
         if ($event instanceof CartWasCreated) {
             $this->cartCreated($event);

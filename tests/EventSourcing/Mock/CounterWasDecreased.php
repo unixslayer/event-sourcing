@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace Unixslayer\EventSourcing\Mock;
 
 use Ramsey\Uuid\UuidInterface;
-use Unixslayer\EventSourcing\Event;
+use Unixslayer\EventSourcing\AggregateEvent;
 
-final class CounterWasDecreased extends Event
+final class CounterWasDecreased extends AggregateEvent
 {
     public static function occur(UuidInterface $aggregateId): self
     {

@@ -8,7 +8,6 @@ use PHPUnit\Framework\TestCase;
 use Ramsey\Uuid\Uuid;
 use Unixslayer\EventSourcing\Mock\Aggregate;
 use Unixslayer\EventSourcing\Mock\Repository;
-use Unixslayer\ProophEventStoreBridge\MessageTransformer;
 use Unixslayer\TestUtils;
 
 /** @group database */

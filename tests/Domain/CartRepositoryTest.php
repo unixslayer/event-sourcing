@@ -9,7 +9,10 @@ use Money\Money;
 use PHPUnit\Framework\TestCase;
 use Prooph\EventStore\InMemoryEventStore;
 use Ramsey\Uuid\Uuid;
-use Unixslayer\ProophEventStoreBridge\MessageTransformer;
+use Unixslayer\Domain\Fixtures\Cart;
+use Unixslayer\Domain\Fixtures\CartRepository;
+use Unixslayer\Domain\Fixtures\Product;
+use Unixslayer\EventSourcing\MessageTransformer;
 use Unixslayer\TestUtils;
 
 final class CartRepositoryTest extends TestCase

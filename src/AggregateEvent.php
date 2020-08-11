@@ -6,9 +6,8 @@ namespace Unixslayer\EventSourcing;
 
 use Ramsey\Uuid\Uuid;
 use Ramsey\Uuid\UuidInterface;
-use Unixslayer\ProophEventStoreBridge\EventData;
 
-class Event
+class AggregateEvent
 {
     private UuidInterface $uuid;
     private \DateTimeImmutable $createdAt;
@@ -27,11 +26,11 @@ class Event
         $this->payload = $payload;
     }
 
-    public static function fromEventData(EventData $domainMessage): Event
+    public static function fromEventData(EventData $domainMessage): AggregateEvent
     {
         $messageRef = new \ReflectionClass(\get_called_class());
 
-        /** @var Event $message */
+        /** @var AggregateEvent $message */
         $message = $messageRef->newInstanceWithoutConstructor();
 
         $message->uuid = $domainMessage->uuid();
@@ -73,7 +72,7 @@ class Event
     }
 
     /** @psalm-suppress MissingParamType */
-    public function withAddedMetadata(string $key, $value): Event
+    public function withAddedMetadata(string $key, $value): AggregateEvent
     {
         $message = clone $this;
         $message->metadata[$key] = $value;
