@@ -1,7 +1,9 @@
 # unixslayer/event-sourcing
 
-[![Build Status](https://travis-ci.org/unixslayer/event-sourcing.svg?branch=master)](https://travis-ci.org/unixslayer/event-sourcing)
-[![Coverage Status](https://coveralls.io/repos/github/unixslayer/event-sourcing/badge.svg?branch=master)](https://coveralls.io/github/unixslayer/event-sourcing?branch=master)
+![Travis (.org)](https://img.shields.io/travis/unixslayer/event-sourcing)
+![Coveralls github](https://img.shields.io/coveralls/github/unixslayer/event-sourcing)
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/unixslayer/event-sourcing)
+![GitHub](https://img.shields.io/github/license/unixslayer/event-sourcing)
 
 Basic implementation of Event Sourcing using [prooph/event-store](https://github.com/prooph/event-store), due to fact that [prooph/event-sourcing](https://github.com/prooph/event-sourcing) is abandoned.
 
