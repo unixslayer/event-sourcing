@@ -9,17 +9,6 @@
 >
     <php>
         <ini name="error_reporting" value="-1"/>
-        <env name="POSTGRES_HOST" value="127.0.0.1" force="true"/>
-        <env name="POSTGRES_PORT" value="5432" force="true"/>
-        <env name="POSTGRES_DB" value="eventstore" force="true"/>
-        <env name="POSTGRES_USER" value="eventstore" force="true"/>
-        <env name="POSTGRES_PASS" value="eventstore123" force="true"/>
-        <env name="MYSQL_HOST" value="127.0.0.1" force="true"/>
-        <env name="MYSQL_PORT" value="3306" force="true"/>
-        <env name="MYSQL_DB" value="eventstore" force="true"/>
-        <env name="MYSQL_USER" value="eventstore" force="true"/>
-        <env name="MYSQL_PASS" value="eventstore123" force="true"/>
-        <env name="MYSQL_CHARSET" value="utf8" force="true"/>
     </php>
 
     <testsuites>

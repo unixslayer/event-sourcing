@@ -23,6 +23,8 @@ class AggregateEvent
     private array $metadata = [
         '_aggregateId' => Uuid::NIL,
         '_aggregateVersion' => 1,
+        '_eventVersion' => 1,
+        '_messageName' => null,
     ];
 
     protected function __construct(UuidInterface $aggregateId, array $payload = [])
@@ -34,17 +36,17 @@ class AggregateEvent
         $this->payload = $payload;
     }
 
-    public static function fromEventData(EventData $domainMessage): AggregateEvent
+    public static function fromEventData(string $messageName, UuidInterface $uuid, \DateTimeImmutable $createdAt, array $metadata, array $payload): AggregateEvent
     {
-        $messageRef = new \ReflectionClass(\get_called_class());
+        $messageRef = new \ReflectionClass($messageName);
 
         /** @var AggregateEvent $message */
         $message = $messageRef->newInstanceWithoutConstructor();
 
-        $message->uuid = $domainMessage->uuid();
-        $message->createdAt = $domainMessage->createdAt();
-        $message->metadata = $domainMessage->metadata();
-        $message->payload = $domainMessage->payload();
+        $message->uuid = $uuid;
+        $message->createdAt = $createdAt;
+        $message->metadata = $metadata;
+        $message->payload = $payload;
 
         return $message;
     }

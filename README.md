@@ -5,7 +5,7 @@
 [![GitHub release (latest by date)][ico-release]][link-release]
 [![GitHub][ico-license]](LICENSE.md)
 
-Basic implementation of Event Sourcing using [prooph/event-store](https://github.com/prooph/event-store), due to fact that [prooph/event-sourcing](https://github.com/prooph/event-sourcing) is abandoned.
+Basic implementation of Event Sourcing due to fact that [prooph/event-sourcing](https://github.com/prooph/event-sourcing) is abandoned. If you are looking for Aggregate repository, check out [unixslayer/event-store](https://github.com/unixslayer/event-store).
 
 ## Installation
 
@@ -13,7 +13,12 @@ You can install this via composer by running `composer require unixslayer/event-
 
 ## Usage
 
-This library was created to use [prooph/event-store](https://github.com/prooph/event-store) so if you are not familiar with it, I suggest go ahead and check.
+This library comes with basic implementation of Event Sourcing which is only two classes:
+
+- aggregate root
+- aggregate event
+
+This repository is inspired from Prooph solution with assimption of being independent from any framework. If you are familiar with [prooph/event-sourcing](https://github.com/prooph/event-sourcing), you'll know what to expect. Otherwise, check out Prooph's repository or [tests](./tests/Domain/CartTest.php).
 
 ## Support
 
