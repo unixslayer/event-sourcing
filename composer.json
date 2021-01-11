@@ -17,8 +17,7 @@
     ],
     "minimum-stability": "dev",
     "require": {
-        "php": "^7.2.5",
-        "prooph/event-store": "^7.5",
+        "php": "^7.4",
         "ramsey/uuid": "^4.0"
     },
     "require-dev": {
@@ -27,12 +26,8 @@
         "moneyphp/money": "^3.3",
         "php-coveralls/php-coveralls": "^2.2",
         "phpunit/phpunit": "^9.1",
-        "prooph/pdo-event-store": "^1.12",
         "roave/security-advisories": "dev-master",
         "vimeo/psalm": "^3.11"
-    },
-    "suggest" : {
-        "prooph/pdo-event-store": "For usage with MySQL or Postgres as event store"
     },
     "config": {
         "platform": {
@@ -60,9 +55,9 @@
             "@psalm"
         ],
         "check-cs": "php-cs-fixer fix --dry-run",
-        "fix-cs": "php-cs-fixer fix",
+        "fix": "php-cs-fixer fix",
         "psalm":  "psalm",
-        "test": "phpunit --exclude database --testdox",
+        "test": "phpunit --testdox",
         "coveralls": "php-coveralls -v"
     }
 }
