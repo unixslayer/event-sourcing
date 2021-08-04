@@ -1,0 +1,49 @@
+name: CI
+
+on:
+    push:
+        branches: [ master ]
+    pull_request:
+        branches: [ master ]
+
+jobs:
+    build:
+
+        runs-on: ${{ matrix.os }}
+
+        strategy:
+            matrix:
+                php:
+                    - "7.4"
+                    - "8.0"
+                os:
+                    - "ubuntu-latest"
+
+        steps:
+            -   name: "Checkout"
+                uses: actions/checkout@v2
+
+            -   name: "Install PHP"
+                uses: "shivammathur/setup-php@v2"
+                with:
+                    coverage: pcov
+                    tools: composer:v2
+                    php-version: "${{ matrix.php }}"
+                    ini-values: memory_limit=-1
+
+            -   name: "Cache dependencies"
+                uses: "actions/cache@v2"
+                with:
+                    path: |
+                        ~/.composer/cache
+                        vendor
+                    key: "php-${{ matrix.php }}-${{ matrix.os }}"
+                    restore-keys: "php-${{ matrix.php }}-${{ matrix.os }}"
+
+            -   name: "Install dependencies"
+                run: "composer install --prefer-dist --no-progress --no-interaction"
+
+            -   name: "Analyse"
+                run: |
+                    composer check-cs
+                    composer psalm
