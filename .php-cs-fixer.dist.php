@@ -6,7 +6,7 @@ $finder = PhpCsFixer\Finder::create()
     ->exclude(['vendor'])
 ;
 
-return PhpCsFixer\Config::create()
+return (new PhpCsFixer\Config())
     ->setFinder($finder)
     ->setRiskyAllowed(true)
     ->setRules([
@@ -23,7 +23,7 @@ return PhpCsFixer\Config::create()
         'strict_param' => true,
         'yoda_style' => false,
         'header_comment' => [
-            'commentType' => 'PHPDoc',
+            'comment_type' => 'PHPDoc',
             'header' => file_get_contents('.docheader'),
         ],
     ])
