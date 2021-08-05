@@ -34,6 +34,6 @@ If for some reason you find this library useful and use it, feel free to file an
 
 [link-tests]: https://github.com/unixslayer/event-sourcing/actions/workflows/tests.yml
 [link-analysis]: https://github.com/unixslayer/event-sourcing/actions/workflows/static-analysis.yml
-[link-coverage]: (https://coveralls.io/github/unixslayer/event-sourcing?branch=master)
+[link-coverage]: https://coveralls.io/github/unixslayer/event-sourcing?branch=master
 [link-release]: https://github.com/unixslayer/event-sourcing/releases
 [link-license]: LICENSE.md
