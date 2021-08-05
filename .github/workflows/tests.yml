@@ -40,13 +40,16 @@ jobs:
                     key: "php-${{ matrix.php }}-${{ matrix.os }}"
                     restore-keys: "php-${{ matrix.php }}-${{ matrix.os }}"
 
+            -   name: "Require php-coveralls/php-coveralls"
+                run: "composer global require php-coveralls/php-coveralls"
+
             -   name: "Install dependencies"
-                run: "composer install --prefer-dist --no-progress --no-interaction"
+                run: "composer update -n --prefer-dist"
 
             -   name: "Testing"
                 run: "composer test"
 
-            -   name: "Coveralls"
-                run: "composer coveralls"
+            -   name: "Upload coverage results to Coveralls"
                 env:
-                    COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
+                    COVERALLS_REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                run: "php-coveralls -v"
