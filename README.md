@@ -27,13 +27,13 @@ I strongly recommend for implementing Event Sourcing by your own. You can accomp
 If for some reason you find this library useful and use it, feel free to file an issue. Also, PR will be awesome.
 
 [ico-tests]: https://github.com/unixslayer/event-sourcing/actions/workflows/tests.yml/badge.svg
-[ico-analysis]: https://github.com/unixslayer/event-sourcing/actions/workflows/static-analyse.yml/badge.svg
+[ico-analysis]: https://github.com/unixslayer/event-sourcing/actions/workflows/static-analysis.yml/badge.svg
 [ico-coverage]: https://coveralls.io/repos/unixslayer/event-sourcing/badge.svg?branch=master&service=github
 [ico-release]: https://img.shields.io/github/v/release/unixslayer/event-sourcing
 [ico-license]: https://img.shields.io/github/license/unixslayer/event-sourcing
 
 [link-tests]: https://github.com/unixslayer/event-sourcing/actions/workflows/tests.yml
-[link-analysis]: https://github.com/unixslayer/event-sourcing/actions/workflows/static-analyse.yml
+[link-analysis]: https://github.com/unixslayer/event-sourcing/actions/workflows/static-analysis.yml
 [link-coverage]: (https://coveralls.io/github/unixslayer/event-sourcing?branch=master)
 [link-release]: https://github.com/unixslayer/event-sourcing/releases
 [link-license]: LICENSE.md
